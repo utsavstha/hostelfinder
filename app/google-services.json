@@ -1,0 +1,135 @@
+{
+  "project_info": {
+    "project_number": "524054772145",
+    "firebase_url": "https://feedapp-f37c4.firebaseio.com",
+    "project_id": "feedapp-f37c4",
+    "storage_bucket": "feedapp-f37c4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:524054772145:android:d7179415512ca9ce8ae590",
+        "android_client_info": {
+          "package_name": "com.assistantaction.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "524054772145-7f7fmnap8e93imd9nf4bmb63brg9qvl4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2X14edRZjsKwsrjsg0xMEsNhgVMGGjz8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "524054772145-7f7fmnap8e93imd9nf4bmb63brg9qvl4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:524054772145:android:c6ea6d633911457e",
+        "android_client_info": {
+          "package_name": "com.example.utsavstha.feedapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "524054772145-farr9cfu8tddgmsklt28vuj0e6amluae.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.utsavstha.feedapp",
+            "certificate_hash": "9599f8a6e3c2e83edf47304bce8a9e439dcb7c19"
+          }
+        },
+        {
+          "client_id": "524054772145-7f7fmnap8e93imd9nf4bmb63brg9qvl4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2X14edRZjsKwsrjsg0xMEsNhgVMGGjz8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "524054772145-7f7fmnap8e93imd9nf4bmb63brg9qvl4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:524054772145:android:ca8c5bd697eda8118ae590",
+        "android_client_info": {
+          "package_name": "com.hostelfinder.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "524054772145-7f7fmnap8e93imd9nf4bmb63brg9qvl4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2X14edRZjsKwsrjsg0xMEsNhgVMGGjz8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "524054772145-7f7fmnap8e93imd9nf4bmb63brg9qvl4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:524054772145:android:71c004cad98aa24a",
+        "android_client_info": {
+          "package_name": "depression.nessie.com.depression"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "524054772145-7f7fmnap8e93imd9nf4bmb63brg9qvl4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2X14edRZjsKwsrjsg0xMEsNhgVMGGjz8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "524054772145-7f7fmnap8e93imd9nf4bmb63brg9qvl4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
