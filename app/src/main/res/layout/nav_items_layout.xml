@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     android:orientation="vertical"
     android:paddingTop="30dp">
 
@@ -15,7 +16,7 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="30dp"
-            app:tint="@color/accent"
+            app:tint="@color/black"
             android:layout_height="30dp"
             android:src="@drawable/ic_home" />
 
@@ -27,10 +28,14 @@
             android:gravity="center_vertical"
             android:text="HOME"
             android:textColor="@color/black"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="16sp" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
+    <View
+        android:alpha="0.5"
+        android:background="@android:color/darker_gray"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/layoutConversation"
         android:layout_width="match_parent"
@@ -41,7 +46,7 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            app:tint="@color/accent"
+            app:tint="@color/black"
             android:src="@drawable/ic_chat" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -52,10 +57,13 @@
             android:gravity="center_vertical"
             android:text="CONVERSATION"
             android:textColor="@color/black"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="16sp" />
     </androidx.appcompat.widget.LinearLayoutCompat>
-
+    <View
+        android:alpha="0.5"
+        android:background="@android:color/darker_gray"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/layoutFavorites"
         android:layout_width="match_parent"
@@ -66,7 +74,7 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            app:tint="@color/accent"
+            app:tint="@color/black"
             android:src="@drawable/ic_baseline_star_24" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -77,10 +85,13 @@
             android:gravity="center_vertical"
             android:text="FAVORITES"
             android:textColor="@color/black"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="16sp" />
     </androidx.appcompat.widget.LinearLayoutCompat>
-
+    <View
+        android:alpha="0.5"
+        android:background="@android:color/darker_gray"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/layoutLogout"
         android:layout_width="match_parent"
@@ -91,7 +102,7 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            app:tint="@color/accent"
+            app:tint="@color/black"
             android:src="@drawable/ic_logout" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -102,8 +113,7 @@
             android:gravity="center_vertical"
             android:text="LOGOUT"
             android:textColor="@color/black"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="16sp" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 

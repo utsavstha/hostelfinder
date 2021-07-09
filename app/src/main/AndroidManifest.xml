@@ -9,6 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HostelFinder">
+        <activity android:name=".HostelDashboardActivity"></activity>
+        <activity android:name=".RegisterHostelActivity" />
+        <activity android:name=".HostelDetails" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${MAPS_API_KEY}" />
@@ -16,7 +20,7 @@
         <activity
             android:name=".DashboardActivity"
             android:theme="@style/Theme.HostelFinder.NoActionBar"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>

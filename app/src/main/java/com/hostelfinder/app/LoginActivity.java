@@ -14,6 +14,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class LoginActivity extends BaseActivity {
 
@@ -29,9 +31,33 @@ public class LoginActivity extends BaseActivity {
     protected void onStart() {
         super.onStart();
         if (mAuth.getCurrentUser() != null) {
-            startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
-            finish();
+            isHostel(mAuth.getUid());
         }
+    }
+
+    private void isHostel(String uid){
+        db.collection("hostel").whereEqualTo("uid", uid).get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            int count = 0;
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                count++;
+                                break;
+                            }
+                            if (count<0){
+                                startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
+                                finish();
+                            }else{
+                                startActivity(new Intent(LoginActivity.this, HostelDashboardActivity.class));
+                                finish();
+                            }
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
     }
 
     public void gotoRegister(View view) {
@@ -87,5 +113,9 @@ public class LoginActivity extends BaseActivity {
                     });
         }
 
+    }
+
+    public void registerHostel(View view) {
+        startActivity(new Intent(LoginActivity.this, RegisterHostelActivity.class));
     }
 }

@@ -21,12 +21,15 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.VectorDrawable;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,7 +54,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DashboardActivity extends BaseActivity implements OnMapReadyCallback,
-        GoogleMap.OnMarkerClickListener, GoogleMap.OnMapClickListener, View.OnClickListener {
+        GoogleMap.OnMarkerClickListener, GoogleMap.OnMapClickListener, View.OnClickListener, HostelAdapter.OnHostelClickListener {
 
     private GoogleMap mMap;
     private List<Hostel> hostelList;
@@ -61,7 +64,7 @@ public class DashboardActivity extends BaseActivity implements OnMapReadyCallbac
     private NavigationView navigationView;
     private DrawerLayout drawer;
     private LinearLayoutCompat layoutHome, layoutConversation, layoutFavorites, layoutLogout;
-
+    private EditText etSearch;
     private RecyclerView rvHostels;
 
     @Override
@@ -77,6 +80,7 @@ public class DashboardActivity extends BaseActivity implements OnMapReadyCallbac
         setSupportActionBar(toolbar);
         drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
+        etSearch = findViewById(R.id.etSearch);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
@@ -85,7 +89,7 @@ public class DashboardActivity extends BaseActivity implements OnMapReadyCallbac
         rvHostels = findViewById(R.id.rvHostels);
         rvHostels.setLayoutManager(new LinearLayoutManager(this,
                 LinearLayoutManager.HORIZONTAL, false));
-        hostelAdapter = new HostelAdapter(hostelList);
+        hostelAdapter = new HostelAdapter(hostelList, this);
         rvHostels.setAdapter(hostelAdapter);
 
         fetchData();
@@ -96,6 +100,27 @@ public class DashboardActivity extends BaseActivity implements OnMapReadyCallbac
 
         fetchNavigationItems();
 
+        etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int i, int i1, int i2) {
+                if(s.length() != 0){
+                    hostelAdapter.filter(s.toString());
+                }else{
+                    hostelAdapter.filter("");
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
     }
 
     private void fetchNavigationItems() {
@@ -261,5 +286,12 @@ public class DashboardActivity extends BaseActivity implements OnMapReadyCallbac
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
 
+    }
+
+    @Override
+    public void onClick(int index) {
+        Intent intent = new Intent(DashboardActivity.this, HostelDetails.class);
+        intent.putExtra("hostel", hostelList.get(index));
+        startActivity(intent);
     }
 }

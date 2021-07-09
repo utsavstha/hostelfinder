@@ -2,6 +2,7 @@ package com.hostelfinder.app;
 
 import androidx.annotation.NonNull;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -96,8 +97,8 @@ public class RegisterActivity extends BaseActivity {
                                 userObj.put("lastName", lName.getText().toString());
                                 userObj.put("email", email.getText().toString());
                                 getUserCollection().add(userObj).addOnSuccessListener(documentReference -> {
-                                    Toast.makeText(getApplicationContext(), "goto dashboard", Toast.LENGTH_SHORT).show();
-
+                                    startActivity(new Intent(RegisterActivity.this, DashboardActivity.class));
+                                    finish();
                                 })
                                 .addOnFailureListener(e -> {
                                     Log.w(TAG, e);
