@@ -11,12 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.hostelfinder.app.Hostel;
 import com.hostelfinder.app.HostelInfo;
 import com.hostelfinder.app.R;
-import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class HostelDashboardAdapter extends RecyclerView.Adapter<HostelDashboardAdapter.ViewHolder>{

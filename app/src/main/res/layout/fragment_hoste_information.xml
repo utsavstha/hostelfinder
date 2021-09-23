@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".RegisterHostelActivity">
+    >
 
     <ScrollView
         android:layout_margin="8dp"
@@ -16,19 +16,6 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <ImageView
-                app:tint="@color/accent"
-                android:layout_gravity="center_horizontal"
-                android:src="@drawable/ic_bed"
-                android:layout_width="80dp"
-                android:layout_height="80dp"/>
-            <TextView
-                android:layout_marginBottom="32dp"
-                android:textSize="20sp"
-                android:text="Hostel Finder"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
             <EditText
                 android:padding="16dp"
                 android:id="@+id/etWardenName"
@@ -69,12 +56,13 @@
                 android:background="@drawable/round_border"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+
             <EditText
                 android:layout_marginTop="8dp"
                 android:padding="16dp"
-                android:id="@+id/etPassword"
-                android:hint="Password"
-                android:inputType="textPassword"
+                android:id="@+id/etRate"
+                android:hint="Price per person"
+                android:inputType="number"
                 android:background="@drawable/round_border"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -82,45 +70,20 @@
             <EditText
                 android:layout_marginTop="8dp"
                 android:padding="16dp"
-                android:id="@+id/etConfirmPassword"
-                android:hint="Confirm password"
-                android:inputType="textPassword"
+                android:id="@+id/etDescription"
+                android:hint="Description"
                 android:background="@drawable/round_border"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="100dp"/>
 
             <Button
-                android:onClick="register"
+                android:id="@+id/btnUpdate"
                 app:backgroundTint="@null"
                 android:layout_marginTop="16dp"
-                android:text="REGISTER"
+                android:text="UPDATE"
                 android:background="@drawable/button_background"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-            <RelativeLayout
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_centerInParent="true"
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:gravity="center"
-                        android:text="Already have an account?"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                    <TextView
-                        android:layout_marginStart="8dp"
-                        android:gravity="center"
-                        android:textColor="@color/accent"
-                        android:text="Login Now"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-            </RelativeLayout>
         </LinearLayout>
     </ScrollView>
 

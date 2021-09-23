@@ -28,6 +28,11 @@ public class LoginActivity extends BaseActivity {
     }
 
     @Override
+    protected int getToolbar() {
+        return -1;
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
         if (mAuth.getCurrentUser() != null) {
@@ -46,7 +51,7 @@ public class LoginActivity extends BaseActivity {
                                 count++;
                                 break;
                             }
-                            if (count<0){
+                            if (count<=0){
                                 startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
                                 finish();
                             }else{
@@ -99,8 +104,7 @@ public class LoginActivity extends BaseActivity {
                                 // Sign in success, update UI with the signed-in user's information
                                 Log.d(TAG, "signInWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
-                                startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
-                                finish();
+                                isHostel(mAuth.getUid());
 
                             } else {
                                 // If sign in fails, display a message to the user.

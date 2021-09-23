@@ -24,12 +24,18 @@ public class HostelDashboardActivity extends BaseActivity implements HostelDashb
     }
 
     @Override
+    protected int getToolbar() {
+        return -1;
+    }
+
+    @Override
     protected void setTag() {
         TAG = HostelDashboardActivity.class.getSimpleName();
     }
 
     @Override
     protected void initView() {
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         rvInfo = findViewById(R.id.rvHostelDashboard);
@@ -43,7 +49,7 @@ public class HostelDashboardActivity extends BaseActivity implements HostelDashb
         hostelInfo.add(new HostelInfo("Information", R.drawable.ic_info));
         hostelInfo.add(new HostelInfo("Manage Rooms", R.drawable.ic_bed));
         hostelInfo.add(new HostelInfo("Chat", R.drawable.ic_chat));
-        hostelInfo.add(new HostelInfo("Manage Students", R.drawable.ic_home));
+        hostelInfo.add(new HostelInfo("Manage Appointments", R.drawable.ic_home));
         hostelInfo.add(new HostelInfo("Reviews", R.drawable.ic_info));
         hostelInfo.add(new HostelInfo("Logout", R.drawable.ic_logout));
 
@@ -56,10 +62,26 @@ public class HostelDashboardActivity extends BaseActivity implements HostelDashb
 
     @Override
     public void onClick(int index) {
+        if (index == 0){
+            startActivity(new Intent(HostelDashboardActivity.this, HostelInformationActivity.class));
+        }
+        if (index == 1){
+            startActivity(new Intent(HostelDashboardActivity.this, ManageRoomActivity.class));
+        }
+        if (index == 3){
+            startActivity(new Intent(HostelDashboardActivity.this, AppointmentActivity.class));
+        }
+        if(index == 4){
+            startActivity(new Intent(HostelDashboardActivity.this, ReviewActivity.class));
+
+        }
         if (index == 5){
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(HostelDashboardActivity.this, LoginActivity.class));
             finish();
+        }else if (index == 2){
+            startActivity(new Intent(HostelDashboardActivity.this, ConversationActivity.class));
+
         }
     }
 }

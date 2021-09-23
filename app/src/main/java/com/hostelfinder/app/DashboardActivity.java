@@ -2,16 +2,13 @@ package com.hostelfinder.app;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -20,7 +17,6 @@ import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.VectorDrawable;
-import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -31,7 +27,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -42,13 +37,10 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.hostelfinder.app.adapter.HostelAdapter;
+import com.hostelfinder.app.model.Hostel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,6 +62,11 @@ public class DashboardActivity extends BaseActivity implements OnMapReadyCallbac
     @Override
     protected int getView() {
         return R.layout.activity_dashboard;
+    }
+
+    @Override
+    protected int getToolbar() {
+        return -1;
     }
 
     @Override
@@ -121,6 +118,8 @@ public class DashboardActivity extends BaseActivity implements OnMapReadyCallbac
 
             }
         });
+
+
     }
 
     private void fetchNavigationItems() {
@@ -146,6 +145,7 @@ public class DashboardActivity extends BaseActivity implements OnMapReadyCallbac
                             Log.d(TAG, document.getId() + " => " + document.getData());
                             Hostel hostel = document.toObject(Hostel.class);
                             hostel.index = index;
+                            hostel.documentId = document.getId();
                             hostelList.add(hostel);
                             index++;
                         }
@@ -269,6 +269,7 @@ public class DashboardActivity extends BaseActivity implements OnMapReadyCallbac
             case R.id.layoutHome:
                 break;
             case R.id.layoutConversation:
+                startActivity(new Intent(DashboardActivity.this, ConversationActivity.class));
                 break;
             case R.id.layoutFavorites:
                 break;
@@ -291,7 +292,8 @@ public class DashboardActivity extends BaseActivity implements OnMapReadyCallbac
     @Override
     public void onClick(int index) {
         Intent intent = new Intent(DashboardActivity.this, HostelDetails.class);
-        intent.putExtra("hostel", hostelList.get(index));
+        AppCache.setHostel(hostelList.get(index));
+        intent.putExtra("uid", hostelList.get(index).documentId);
         startActivity(intent);
     }
 }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:scaleType="centerCrop"
+                android:id="@+id/ivHostelImage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"/>
+            <ImageView
+                android:layout_marginTop="16dp"
+                android:padding="8dp"
+                android:background="@android:color/holo_red_dark"
+                android:layout_gravity="center"
+                app:tint="@color/white"
+                android:id="@+id/ivDelete"
+                android:src="@drawable/ic_baseline_delete_24"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

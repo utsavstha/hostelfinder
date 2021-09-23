@@ -1,9 +1,11 @@
-package com.hostelfinder.app;
+package com.hostelfinder.app.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.google.firebase.firestore.PropertyName;
+
+import java.util.List;
 
 public class Hostel implements Parcelable {
     @PropertyName("address")
@@ -13,13 +15,22 @@ public class Hostel implements Parcelable {
     public String description;
 
     @PropertyName("rate")
-    public double rate;
+    public String rate;
+
+    @PropertyName("reviews")
+    public List<Review> reviews;
+
+    @PropertyName("appointments")
+    public List<Appointment> appointments;
 
     @PropertyName("availableRooms")
-    public int availableRooms;
+    public String availableRooms;
+
+    @PropertyName("totalRoom")
+    public String totalRoom;
 
     @PropertyName("image")
-    public String image;
+    public List<String> image;
 
     @PropertyName("lat")
     public double lat;
@@ -39,31 +50,23 @@ public class Hostel implements Parcelable {
     @PropertyName("warden")
     public String warden;
 
+    @PropertyName("uid")
+    public String postedBy;
+    public String documentId;
     public int index;
     public Hostel() {
     }
 
-    public Hostel(String address, String image, double lat, double lng,
-                  String name, String phone, float rating, String warden) {
-        this.address = address;
-        this.image = image;
-        this.lat = lat;
-        this.lng = lng;
-        this.name = name;
-        this.phone = phone;
-        this.rating = rating;
-        this.warden = warden;
-    }
 
     public String getDescription() {
         return description;
     }
 
-    public double getRate() {
+    public String getRate() {
         return rate;
     }
 
-    public int getAvailableRooms() {
+    public String getAvailableRooms() {
         return availableRooms;
     }
 
@@ -71,7 +74,7 @@ public class Hostel implements Parcelable {
         return address;
     }
 
-    public String getImage() {
+    public List<String> getImage() {
         return image;
     }
 
@@ -99,6 +102,10 @@ public class Hostel implements Parcelable {
         return warden;
     }
 
+    public String getPostedBy() {
+        return postedBy;
+    }
+
     public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
         public Hostel createFromParcel(Parcel in) {
             return new Hostel(in);
@@ -110,17 +117,20 @@ public class Hostel implements Parcelable {
     };
     public Hostel(Parcel in){
         this.address = in.readString();
-        this.image = in.readString();
+        this.availableRooms = in.readString();
         this.lat = in.readDouble();
         this.lng = in.readDouble();
+        this.postedBy = in.readString();
+        this.warden = in.readString();
+        this.rating = in.readFloat();
+
+//        this.image = in.readArrayList(String.class);
+
         this.name = in.readString();
         this.phone = in.readString();
-        this.rating = in.readFloat();
-        this.rate = in.readDouble();
-        this.availableRooms = in.readInt();
-        this.warden = in.readString();
+        this.rate = in.readString();
 
-//        this.description = in.readString();
+        this.description = in.readString();
     }
     @Override
     public int describeContents() {
@@ -130,16 +140,19 @@ public class Hostel implements Parcelable {
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(this.address);
-        parcel.writeString(this.image);
+        parcel.writeString(this.availableRooms);
         parcel.writeDouble(this.lat);
         parcel.writeDouble(this.lng);
+        parcel.writeString(this.postedBy);
+        parcel.writeString(this.warden);
+        parcel.writeDouble(this.rating);
+
+//        parcel.writeString(this.image);
+
         parcel.writeString(this.name);
         parcel.writeString(this.phone);
-        parcel.writeDouble(this.rating);
-        parcel.writeDouble(this.rate);
-        parcel.writeInt(this.availableRooms);
-        parcel.writeString(this.warden);
+        parcel.writeString(this.rate);
 
-//        parcel.writeString(this.description);
+        parcel.writeString(this.description);
     }
 }

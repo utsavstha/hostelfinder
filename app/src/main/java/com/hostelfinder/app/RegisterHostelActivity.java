@@ -33,6 +33,11 @@ public class RegisterHostelActivity extends BaseActivity {
     }
 
     @Override
+    protected int getToolbar() {
+        return -1;
+    }
+
+    @Override
     protected void setTag() {
         TAG = RegisterHostelActivity.class.getSimpleName();
     }
@@ -43,8 +48,6 @@ public class RegisterHostelActivity extends BaseActivity {
         etHostelName = findViewById(R.id.etHostelName);
         etEmail = findViewById(R.id.etEmail);
         etHostelAddress = findViewById(R.id.etAddress);
-        etPassword = findViewById(R.id.etPassword);
-        etConfirmPassword = findViewById(R.id.etConfirmPassword);
         etContactNumber = findViewById(R.id.etContact);
     }
 

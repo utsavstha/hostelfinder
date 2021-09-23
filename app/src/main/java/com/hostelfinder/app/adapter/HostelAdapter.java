@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.hostelfinder.app.Hostel;
+import com.hostelfinder.app.model.Hostel;
 import com.hostelfinder.app.R;
 import com.squareup.picasso.Picasso;
 
@@ -76,9 +76,14 @@ public class HostelAdapter extends RecyclerView.Adapter<HostelAdapter.ViewHolder
         }
 
         public void bindView(Hostel hostel){
-            Picasso.get()
-                    .load(hostel.getImage())
-                    .into(hostelImage);
+            if (hostel.getImage().size() > 0){
+                Picasso.get()
+                        .load(hostel.getImage().get(0))
+                        .resize(800, 800)
+                        .onlyScaleDown() // the image will only be resized if it's bigger than 6000x2000 pixels.
+                        .into(hostelImage);
+            }
+
             name.setText(hostel.name);
             address.setText(hostel.address);
             rating.setText(String.valueOf(hostel.rating));

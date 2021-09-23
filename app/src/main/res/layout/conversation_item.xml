@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/round_background"
+    android:padding="16dp"
+    android:layout_marginBottom="4dp"
+    android:layout_height="wrap_content">
+    <com.github.siyamed.shapeimageview.CircularImageView
+        android:id="@+id/ivProductImage"
+        android:layout_marginEnd="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_bed"
+        app:siBorderColor="@color/accent"
+        app:siBorderWidth="1dp"
+        android:layout_width="40dp"
+        android:tint="@color/accent"
+        android:layout_height="40dp"/>
+
+    <LinearLayout
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/ivProductImage"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="18sp"
+            android:id="@+id/tvUser"
+            android:text="Utsav Shrestha"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tvLastMessage"
+            android:text="Hello"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

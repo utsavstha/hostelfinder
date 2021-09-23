@@ -2,4 +2,6 @@
     <string name="app_name">Hostel Finder</string>
     <string name="API_KEY">AIzaSyA22BlczHkEuTBnOOzWphRazcxhE1zRLOs</string>
     <string name="loreum_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed volutpat orci. Sed vulputate mollis fermentum. Phasellus aliquet molestie blandit. Vivamus sapien turpis, rutrum placerat turpis eget, venenatis mattis tellus. Duis rhoncus dictum urna, ut molestie eros aliquet eu. In vitae velit lorem. Nam eget ultrices tellus. Donec eu mauris eros. Aliquam at nunc sollicitudin, blandit tellus a, varius lectus. In hac habitasse platea dictumst. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis augue non felis rutrum venenatis vitae sed enim. Quisque pretium ipsum et pellentesque malesuada. Maecenas posuere odio ac ornare pharetra. Cras sit amet lorem a diam semper cursus.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
